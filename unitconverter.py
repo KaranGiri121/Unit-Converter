@@ -27,8 +27,12 @@ def user_menu_1():
 		len_menu={1:'Decimeter',2:'Milimeter',3:'Centimeter',4:'Meter',5:'Kilometer'}
 		for i in len_menu:
 			print(f'[{i}]:{len_menu[i]}',end='\n')
-		user_input=int(input('Enter The Unit Conversion From : ')) 
-		user_length=int(input(f'{len_menu[user_input]}: '))
+		try :
+			user_input=int(input('Enter The Unit Conversion From : ')) 
+			user_length=int(input(f'{len_menu[user_input]}: '))
+		except Exception:
+			print("Enter Valid Number/Choice")
+			user_menu_1()
 		a=Len()
 		meter=a.ans(len_menu[user_input],user_length)
 		for i in len_menu:

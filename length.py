@@ -1,7 +1,8 @@
 class Len:
 	def ans(self,num,user_input):
-		answer='Flase'
-		return getattr(self,num,lambda:answer)(user_input)
+		return getattr(self,num,lambda e: print('Enetr Valid Value'))(user_input)
+	def err(self,user_input):
+		print('Enter Valid Value : ')
 	def Decimeter(self,user_input):
 		meter=float(user_input)/10
 		return meter

@@ -1,8 +1,9 @@
 import os
 from length import Len
 from area import Area
+from weigth import Weigth
 def menu():
-	dict={1:Lenconversion,2:Areaconversion}
+	dict={1:Lenconversion,2:Areaconversion,3:Weigthconversion}
 	print('''Welcome To Unit Converter
 	[1]Length
 	[2]Area
@@ -70,9 +71,41 @@ def Areaconversion():
 		user_input=int(input('Enter Unit Coversion To : '))
 		to_area={1:'to_sqrtdecimeter',2:'to_sqrtmilimeter',3:'to_sqrtcentimeter',4:'to_sqrtmeter',
 			5:'to_sqrtkilometer',6:'to_are',7:'to_hectare'}
-		print(sqrtmeter,to_area[user_input])
 		answer=a.ans(to_area[user_input],sqrtmeter)
-		print(f'{area_menu[user_input]}: {answer}')
+		print(f'{area_menu[user_input]}:{answer}')
+		print('Press Any Key To Back To Menu Or',end='\n')
+		user_input=input('Press Y For Unitconversion : ')
+		if user_input!='y' and user_input!='Y':
+			menu()
+
+def Weigthconversion():
+	while True:
+		os.system('clear')
+		print('Weigth Conversion')
+		weigth_menu={1:'Gram',
+			2:'Quintal',
+			3:'Carat',
+			4:'Ton',
+			5:'Kilogram',
+			6:'Ounce',
+			7:'Pound'}
+		for i in weigth_menu:
+			print(f'{i}:{weigth_menu[i]}')
+		try:
+			user_input=int(input("Enter Unit Conversion From :"))
+			user_weigth=int(input(f'{weigth_menu[user_input]}: '))
+		except Exception:
+			print("Enter Valid Entry")
+			Weigthconversion()
+		a=Weigth()
+		kilogram=a.ans(weigth_menu[user_input],user_weigth)
+		for i in weigth_menu:
+			print(f'{i}:{weigth_menu[i]} ')
+		user_input=int(input('Enter Unit Coversion To : '))
+		to_weigth={1:'to_gram',2:'to_quintal',3:'to_carat',4:'to_ton',
+			5:'to_kilogram',6:'to_ounce',7:'to_pound'}
+		answer=a.ans(to_weigth[user_input],kilogram)
+		print(f'{weigth_menu[user_input]}: {answer}')
 		print('Press Any Key To Back To Menu Or',end='\n')
 		user_input=input('Press Y For Unitconversion : ')
 		if user_input!='y' and user_input!='Y':
